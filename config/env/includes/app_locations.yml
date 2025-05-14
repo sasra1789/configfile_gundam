@@ -160,6 +160,9 @@ apps.tk-multi-scandataconverter.location:
 apps.tk-multi-referencemanager.location:
   type: dev
   path: "/home/rapa/westworld_serin/tk-multi-referencemanager"
+apps.tk-gundam-publish2.location:
+  type: dev
+  path: "/home/rapa/westworld_serin/tk-gundam-publish2"
 # 여기까지 ㅎ 
 apps.tk-mari-projectmanager.location:
   name: tk-mari-projectmanager

@@ -194,8 +194,12 @@ settings.tk-multi-publish2.maya.asset_step:
     settings: {}
   #너와나의 연결고리~
   - name: Export Scene Info #gpt
-    hook: "{self}/publish_file.py:{config}/tk-multi-publish2/basic/publish_export_scene_info.py"
+    hook: "{config}/tk-multi-publish2/basic/publish_export_scene_info.py"
     settings: {}
+  # #너와나의 연결고리~
+  # - name: Export Scene Info #gpt
+  #   hook: "{self}/publish_file.py:{config}/tk-multi-publish2/basic/publish_export_scene_info.py"
+  #   settings: {}
   help_url: *help_url
   location: "@apps.tk-multi-publish2.location"
 
