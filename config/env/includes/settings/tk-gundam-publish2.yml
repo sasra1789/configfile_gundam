@@ -1,0 +1,17 @@
+
+settings.tk-gundam-publish2.maya.asset_step:
+  collector: "{config}/tk-gundam-publish2/hooks/collector_maya.py"
+  collector_settings: {}
+  publish_plugins:
+    - name: Export Scene Info
+      hook: "{config}/tk-gundam-publish2/hooks/publish_plugins/publish_export_json.py"
+      settings: {}
+    - name: Export Alembic
+      hook: "{config}/tk-gundam-publish2/hooks/publish_plugins/publish_export_abc.py"
+      settings: {}
+    - name: Export USD
+      hook: "{config}/tk-gundam-publish2/hooks/publish_plugins/publish_export_usd.py"
+      settings: {}
+    - name: Export Playblast
+      hook: "{config}/tk-gundam-publish2/hooks/publish_plugins/publish_export_mov.py"
+      settings: {}

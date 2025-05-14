@@ -23,6 +23,7 @@ includes:
 - ./tk-multi-snapshot.yml
 - ./tk-multi-workfiles2.yml
 - ./tk-multi-breakdown2.yml
+- ./tk-gundam-publish2.yml #지우면 ㅈ됨 
 
 ################################################################################
 
@@ -50,7 +51,7 @@ settings.tk-maya.asset_step:
     tk-multi-breakdown2: "@settings.tk-multi-breakdown2.maya"
     tk-multi-data-validation: "@settings.tk-multi-data-validation.maya.asset_step"
     tk-multi-loader2: "@settings.tk-multi-loader2.maya" #원체 존재
-    tk-multi-publish2: "@settings.tk-multi-publish2.maya.asset_step"
+    # tk-multi-publish2: "@settings.tk-multi-publish2.maya.asset_step"
     tk-multi-screeningroom: "@settings.tk-multi-screeningroom.rv"
     tk-multi-shotgunpanel: "@settings.tk-multi-shotgunpanel.maya"
     tk-multi-snapshot: "@settings.tk-multi-snapshot.maya.asset_step"
@@ -58,8 +59,25 @@ settings.tk-maya.asset_step:
     tk-multi-reviewsubmission: "@settings.tk-multi-reviewsubmission.maya"
     tk-multi-referencemanager: # 내가 추가한거 (37-38)
       location: {type: dev, path: /home/rapa/westworld_serin/tk-multi-referencemanager}
-    tk-gundam-publish2: # 여기까지 쓰는거
-      location: {type: dev, path: /home/rapa/westworld_serin/tk-gundam-publish2}
+
+  
+    #엥 이거쓰니까 해결됨 ㅁㅊ 
+    tk-multi-publish2:
+      location:
+        type: app_store
+        name: tk-multi-publish2
+        version: v2.10.3
+      settings: "@settings.tk-multi-publish2.maya.asset_step"
+    #이거하니까 낫밷
+    tk-gundam-publish2:
+      location:
+        type: dev
+        path: /home/rapa/westworld_serin/configfile_gundam_4/install/app_store/tk-gundam-publish2
+      settings: "@settings.tk-gundam-publish2.maya.asset_step"
+    # #찾았다이새끼 
+    # tk-gundam-publish2: "@settings.tk-gundam-publish2.maya.asset_step"
+    # # tk-gundam-publish2: # 여기까지 쓰는거
+    # #   location: {type: dev, path: /home/rapa/westworld_serin/tk-gundam-publish2}
   menu_favourites:
   - {app_instance: tk-multi-workfiles2, name: File Open...}
   - {app_instance: tk-multi-loader2, name: Loader}  #  이 줄 추가!
@@ -68,7 +86,7 @@ settings.tk-maya.asset_step:
   - {app_instance: tk-multi-publish2, name: Publish...}
   - {app_instance: tk-multi-breakdown2, name: Scene Breakdown...}
   - {app_instance: tk-multi-referencemanager, name: Reference Manager} # 추가
-  - {app_instance: tk-gundam-publish2, name: TEST Publish...}
+  - {app_instance: tk-gundam-publish2, name: Gundam Publish...} 
   
   template_project: asset_work_area_maya
   location: "@engines.tk-maya.location"
@@ -136,8 +154,7 @@ settings.tk-maya.shot_step:
     #   location: {type: dev, path: /home/rapa/westworld_serin/tk-multi-referencemanager}
     tk-multi-referencemanager:
       location: "@apps.tk-multi-referencemanager.location"
-    tk-gundam-publish2: # 여기까지 쓰는거
-      location: {type: dev, path: /home/rapa/westworld_serin/tk-gundam-publish2}
+    tk-gundam-publish2: "@settings.tk-gundam-publish2.maya.asset_step"
   menu_favourites:
   - {app_instance: tk-multi-workfiles2, name: File Open...}
   - {app_instance: tk-multi-loader2, name: Loader}  #  줄 추가!

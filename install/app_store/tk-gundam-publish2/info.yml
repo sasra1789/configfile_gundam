@@ -1,0 +1,14 @@
+# tk-multi-referencemanager 정보 정의 파일
+
+display_name: "Gundam Publish"
+description: "앱붙이기"
+
+# 사용할 수 있는 엔진 목록
+supported_engines:
+  - tk-maya
+
+# 설정값 없음 (별도 config 필요 없음)
+configuration: {}
+
+python_path: python
+

@@ -12,12 +12,13 @@ import os
 import maya.cmds as cmds
 import maya.mel as mel
 import sgtk
-import sys
 
-sys.path.append("/home/rapa/show/maya/turnaround")
-sys.path.append("/home/rapa/show/maya/utils")
-from playblast_generator import PlayblastGenerator
+import sys
+sys.path.append("/home/rapa/NA_Spirit/open")
+sys.path.append("/home/rapa/NA_Spirit/utils")
+from open_manager import OpenManager
 from flow_utils import FlowUtils
+
 
 try:
     from tank_vendor import sgutils
@@ -49,8 +50,10 @@ class MayaSessionGeometryPublishPlugin(HookBaseClass):
         """
 
         return """
-        <p>This plugin publishes shot playblast mov for the current session. 
-        Published video will be exported to local path and Flow Website.</p>
+        <p>This plugin publishes session geometry USD for the current session. Any
+        session geometry will be exported to the path defined by this plugin's
+        configured "Publish Template" setting. The plugin will fail to validate
+        if the "AbcExport" plugin is not enabled or cannot be found.</p>
         """
 
     @property
@@ -214,14 +217,14 @@ class MayaSessionGeometryPublishPlugin(HookBaseClass):
         work_fields = work_template.get_fields(path)
 
         # ensure the fields work for the publish template
-        missing_keys = publish_template.missing_keys(work_fields)
-        if missing_keys:
-            error_msg = (
-                "Work file '%s' missing keys required for the "
-                "publish template: %s" % (path, missing_keys)
-            )
-            self.logger.error(error_msg)
-            raise Exception(error_msg)
+        # missing_keys = publish_template.missing_keys(work_fields)
+        # if missing_keys:
+        #     error_msg = (
+        #         "Work file '%s' missing keys required for the "
+        #         "publish template: %s" % (path, missing_keys)
+        #     )
+        #     self.logger.error(error_msg)
+        #     raise Exception(error_msg)
 
         # create the publish path by applying the fields. store it in the item's
         # properties. This is the path we'll create and then publish in the base
@@ -263,11 +266,12 @@ class MayaSessionGeometryPublishPlugin(HookBaseClass):
 
         # 현재 엔진의 컨텍스트 가져오기
         context = engine.context
-        first_frame, last_frame = FlowUtils.get_cut_in_out(context.entity["id"])
-        PlayblastGenerator().playblast(publish_path,first_frame,last_frame)
+
+        OpenManager(context).publish(_session_path())
 
         # Now that the path has been generated, hand it off to the
         super(MayaSessionGeometryPublishPlugin, self).publish(settings, item)
+
 
 
 def _find_scene_animation_range():

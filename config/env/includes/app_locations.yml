@@ -14,6 +14,7 @@
 includes:
 - ./frameworks.yml
 
+
 ################################################################################
 # location descriptors for apps used in this configuration
 
@@ -150,13 +151,7 @@ apps.tk-multi-scandataconverter.location:
   type: dev
   name: tk-multi-scandataconverter-app
   path: "/home/rapa/westworld_serin/tk-multi-scandataconverter"
-#   # 혹시모르니 추가
-# apps:
-#   tk-converter:
-#     location:
-#       type: dev
-#       path: /home/rapa/westworld_serin/configfile_clone_clone_2_clone/install/app_store/tk-converter/v1.0.0
-# app_locations.yml 또는 직접 환경 yaml에 사용 가능
+
 apps.tk-multi-referencemanager.location:
   type: dev
   path: "/home/rapa/westworld_serin/tk-multi-referencemanager"
@@ -168,6 +163,12 @@ apps.tk-mari-projectmanager.location:
   name: tk-mari-projectmanager
   type: app_store
   version: v1.4.1
+
+#힘들다 
+apps.tk-gundam-publish2:
+  location:
+    type: dev
+    path: "/home/rapa/westworld_serin/configfile_gundam_4/install/app_store/tk-gundam-publish2"
 
 apps.tk-iomanager.location:
   name: tk-iomanager

@@ -108,9 +108,9 @@ settings.tk-multi-publish2.houdini.asset_step:
     hook: "{self}/publish_file.py:{engine}/tk-multi-publish2/basic/publish_session.py"
     settings:
         Publish Template: houdini_asset_publish
-  - name: Export Scene Info #gpt
-    hook: "{self}/publish_file.py:{config}/tk-multi-publish2/hooks/publish_plugins/publish_export_scene_info.py"
-    settings: {}
+  # - name: Export Scene Info #gpt
+  #   hook: "{self}/publish_file.py:{config}/tk-multi-publish2/hooks/publish_plugins/publish_export_scene_info.py"
+  #   settings: {}
 
   help_url: *help_url
   location: "@apps.tk-multi-publish2.location"
@@ -134,9 +134,9 @@ settings.tk-multi-publish2.houdini.shot_step:
     hook: "{self}/publish_file.py:{engine}/tk-multi-publish2/basic/publish_session.py"
     settings:
         Publish Template: houdini_shot_publish
-  - name: Export Scene Info #gpt
-    hook: "{self}/publish_file.py:{config}/tk-multi-publish2/hooks/publish_plugins/publish_export_scene_info.py"
-    settings: {}
+  # - name: Export Scene Info #gpt
+  #   hook: "{self}/publish_file.py:{config}/tk-multi-publish2/hooks/publish_plugins/publish_export_scene_info.py"
+  #   settings: {}
   help_url: *help_url
   location: "@apps.tk-multi-publish2.location"
 
@@ -189,17 +189,9 @@ settings.tk-multi-publish2.maya.asset_step:
     settings:
         Publish Template: asset_alembic_cache
   # 링크 통해 실습
-  - name: Create Version from Playblast
+  - name: Create VerSsion from Playblast
     hook: "{self}/upload_version.py:{config}/tk-multi-publish2/basic/upload_version_playblast.py"
     settings: {}
-  #너와나의 연결고리~
-  - name: Export Scene Info #gpt
-    hook: "{config}/tk-multi-publish2/basic/publish_export_scene_info.py"
-    settings: {}
-  # #너와나의 연결고리~
-  # - name: Export Scene Info #gpt
-  #   hook: "{self}/publish_file.py:{config}/tk-multi-publish2/basic/publish_export_scene_info.py"
-  #   settings: {}
   help_url: *help_url
   location: "@apps.tk-multi-publish2.location"
 
